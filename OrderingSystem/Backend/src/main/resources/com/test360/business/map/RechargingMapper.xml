@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test360.business.dao.RechargingMapper" >
+  <resultMap id="BaseResultMap" type="com.test360.business.model.Recharging" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="recharge_time" property="rechargeTime" jdbcType="TIMESTAMP" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.userId != null and condition.userId > -1" >
+         and user_id = #{condition.userId}
+      </if>
+      <if test="condition.userId_greater != null" >
+         and user_id &gt;= #{condition.userId_greater}
+      </if>
+      <if test="condition.userId_less != null" >
+         and user_id &lt;= #{condition.userId_less}
+      </if>
+      <if test="condition.userId_notequal != null" >
+         and user_id &lt;&gt; #{condition.userId_notequal}
+      </if>
+      <if test="condition.userId_in != null" >
+         and user_id in 
+		<foreach collection="condition.userId_in" item="userId" open="(" separator="," close=")" >
+			#{userId}
+		</foreach>
+      </if>
+      <if test="condition.rechargeTime != null" >
+         and recharge_time like #{condition.rechargeTime}
+      </if>
+      <if test="condition.rechargeTime1 != null" >
+         and recharge_time &gt;= #{condition.rechargeTime1}
+      </if>
+      <if test="condition.rechargeTime2 != null" >
+         and recharge_time &lt;= #{condition.rechargeTime2}
+      </if>
+      <if test="condition.money != null and condition.money > -1" >
+         and money = #{condition.money}
+      </if>
+      <if test="condition.money_greater != null" >
+         and money &gt;= #{condition.money_greater}
+      </if>
+      <if test="condition.money_less != null" >
+         and money &lt;= #{condition.money_less}
+      </if>
+      <if test="condition.money_notequal != null" >
+         and money &lt;&gt; #{condition.money_notequal}
+      </if>
+      <if test="condition.money_in != null" >
+         and money in 
+		<foreach collection="condition.money_in" item="money" open="(" separator="," close=")" >
+			#{money}
+		</foreach>
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, recharge_time, money
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.test360.business.model.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from recharging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from recharging
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from recharging
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.test360.business.model.Criteria" >
+    delete from recharging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.test360.business.model.Recharging" useGeneratedKeys="true" keyProperty="id" >
+    insert into recharging (user_id, recharge_time, money)
+    values (#{userId}, #{rechargeTime}, #{money})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test360.business.model.Recharging" useGeneratedKeys="true" keyProperty="id" >
+    insert into recharging
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="rechargeTime != null" >
+        recharge_time,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="rechargeTime != null" >
+        #{rechargeTime},
+      </if>
+      <if test="money != null" >
+        #{money},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.test360.business.model.Criteria" resultType="java.lang.Integer" >
+    select count(*) from recharging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update recharging
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.rechargeTime != null" >
+        recharge_time = #{record.rechargeTime},
+      </if>
+      <if test="record.money != null" >
+        money = #{record.money},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update recharging
+    set id = #{record.id},
+      user_id = #{record.userId},
+      recharge_time = #{record.rechargeTime},
+      money = #{record.money}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test360.business.model.Recharging" >
+    update recharging
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="rechargeTime != null" >
+        recharge_time = #{rechargeTime},
+      </if>
+      <if test="money != null" >
+        money = #{money},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test360.business.model.Recharging" >
+    update recharging
+    set user_id = #{userId},
+      recharge_time = #{rechargeTime},
+      money = #{money}
+    where id = #{id}
+  </update>
+</mapper>

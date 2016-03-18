@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test360.business.dao.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.test360.business.model.Menu" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="menu_date" property="menuDate" jdbcType="DATE" />
+    <result column="menu_type" property="menuType" jdbcType="VARCHAR" />
+    <result column="menu" property="menu" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.menuDate != null" >
+         and menu_date like #{condition.menuDate}
+      </if>
+      <if test="condition.menuDate1 != null" >
+         and menu_date &gt;= #{condition.menuDate1}
+      </if>
+      <if test="condition.menuDate2 != null" >
+         and menu_date &lt;= #{condition.menuDate2}
+      </if>
+      <if test="condition.menuType != null" >
+         and menu_type like #{condition.menuType}
+      </if>
+      <if test="condition.menuType_greater != null" >
+         and menu_type &gt;= #{condition.menuType_greater}
+      </if>
+      <if test="condition.menuType_less != null" >
+         and menu_type &lt;= #{condition.menuType_less}
+      </if>
+      <if test="condition.menuType_notequal != null" >
+         and menu_type &lt;&gt; #{condition.menuType_notequal}
+      </if>
+      <if test="condition.menuType_in != null" >
+         and menu_type in 
+		<foreach collection="condition.menuType_in" item="menuType" open="(" separator="," close=")" >
+			#{menuType}
+		</foreach>
+      </if>
+      <if test="condition.menu != null" >
+         and menu like #{condition.menu}
+      </if>
+      <if test="condition.menu_greater != null" >
+         and menu &gt;= #{condition.menu_greater}
+      </if>
+      <if test="condition.menu_less != null" >
+         and menu &lt;= #{condition.menu_less}
+      </if>
+      <if test="condition.menu_notequal != null" >
+         and menu &lt;&gt; #{condition.menu_notequal}
+      </if>
+      <if test="condition.menu_in != null" >
+         and menu in 
+		<foreach collection="condition.menu_in" item="menu" open="(" separator="," close=")" >
+			#{menu}
+		</foreach>
+      </if>
+      <if test="condition.price != null and condition.price > -1" >
+         and price = #{condition.price}
+      </if>
+      <if test="condition.price_greater != null" >
+         and price &gt;= #{condition.price_greater}
+      </if>
+      <if test="condition.price_less != null" >
+         and price &lt;= #{condition.price_less}
+      </if>
+      <if test="condition.price_notequal != null" >
+         and price &lt;&gt; #{condition.price_notequal}
+      </if>
+      <if test="condition.price_in != null" >
+         and price in 
+		<foreach collection="condition.price_in" item="price" open="(" separator="," close=")" >
+			#{price}
+		</foreach>
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, menu_date, menu_type, menu, price
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.test360.business.model.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from menu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from menu
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from menu
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.test360.business.model.Criteria" >
+    delete from menu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.test360.business.model.Menu" useGeneratedKeys="true" keyProperty="id" >
+    insert into menu (menu_date, menu_type, menu, price)
+    values (#{menuDate}, #{menuType}, #{menu}, #{price})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test360.business.model.Menu" useGeneratedKeys="true" keyProperty="id" >
+    insert into menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="menuDate != null" >
+        menu_date,
+      </if>
+      <if test="menuType != null" >
+        menu_type,
+      </if>
+      <if test="menu != null" >
+        menu,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="menuDate != null" >
+        #{menuDate},
+      </if>
+      <if test="menuType != null" >
+        #{menuType},
+      </if>
+      <if test="menu != null" >
+        #{menu},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.test360.business.model.Criteria" resultType="java.lang.Integer" >
+    select count(*) from menu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update menu
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.menuDate != null" >
+        menu_date = #{record.menuDate},
+      </if>
+      <if test="record.menuType != null" >
+        menu_type = #{record.menuType},
+      </if>
+      <if test="record.menu != null" >
+        menu = #{record.menu},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update menu
+    set id = #{record.id},
+      menu_date = #{record.menuDate},
+      menu_type = #{record.menuType},
+      menu = #{record.menu},
+      price = #{record.price}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test360.business.model.Menu" >
+    update menu
+    <set >
+      <if test="menuDate != null" >
+        menu_date = #{menuDate},
+      </if>
+      <if test="menuType != null" >
+        menu_type = #{menuType},
+      </if>
+      <if test="menu != null" >
+        menu = #{menu},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test360.business.model.Menu" >
+    update menu
+    set menu_date = #{menuDate},
+      menu_type = #{menuType},
+      menu = #{menu},
+      price = #{price}
+    where id = #{id}
+  </update>
+</mapper>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test360.business.dao.ReceivingMapper" >
+  <resultMap id="BaseResultMap" type="com.test360.business.model.Receiving" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="get_time" property="getTime" jdbcType="TIMESTAMP" />
+    <result column="menu_type" property="menuType" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="is_error" property="isError" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.userId != null and condition.userId > -1" >
+         and user_id = #{condition.userId}
+      </if>
+      <if test="condition.userId_greater != null" >
+         and user_id &gt;= #{condition.userId_greater}
+      </if>
+      <if test="condition.userId_less != null" >
+         and user_id &lt;= #{condition.userId_less}
+      </if>
+      <if test="condition.userId_notequal != null" >
+         and user_id &lt;&gt; #{condition.userId_notequal}
+      </if>
+      <if test="condition.userId_in != null" >
+         and user_id in 
+		<foreach collection="condition.userId_in" item="userId" open="(" separator="," close=")" >
+			#{userId}
+		</foreach>
+      </if>
+      <if test="condition.getTime != null" >
+         and get_time like #{condition.getTime}
+      </if>
+      <if test="condition.getTime1 != null" >
+         and get_time &gt;= #{condition.getTime1}
+      </if>
+      <if test="condition.getTime2 != null" >
+         and get_time &lt;= #{condition.getTime2}
+      </if>
+      <if test="condition.menuType != null" >
+         and menu_type like #{condition.menuType}
+      </if>
+      <if test="condition.menuType_greater != null" >
+         and menu_type &gt;= #{condition.menuType_greater}
+      </if>
+      <if test="condition.menuType_less != null" >
+         and menu_type &lt;= #{condition.menuType_less}
+      </if>
+      <if test="condition.menuType_notequal != null" >
+         and menu_type &lt;&gt; #{condition.menuType_notequal}
+      </if>
+      <if test="condition.menuType_in != null" >
+         and menu_type in 
+		<foreach collection="condition.menuType_in" item="menuType" open="(" separator="," close=")" >
+			#{menuType}
+		</foreach>
+      </if>
+      <if test="condition.location != null" >
+         and location like #{condition.location}
+      </if>
+      <if test="condition.location_greater != null" >
+         and location &gt;= #{condition.location_greater}
+      </if>
+      <if test="condition.location_less != null" >
+         and location &lt;= #{condition.location_less}
+      </if>
+      <if test="condition.location_notequal != null" >
+         and location &lt;&gt; #{condition.location_notequal}
+      </if>
+      <if test="condition.location_in != null" >
+         and location in 
+		<foreach collection="condition.location_in" item="location" open="(" separator="," close=")" >
+			#{location}
+		</foreach>
+      </if>
+      <if test="condition.price != null and condition.price > -1" >
+         and price = #{condition.price}
+      </if>
+      <if test="condition.price_greater != null" >
+         and price &gt;= #{condition.price_greater}
+      </if>
+      <if test="condition.price_less != null" >
+         and price &lt;= #{condition.price_less}
+      </if>
+      <if test="condition.price_notequal != null" >
+         and price &lt;&gt; #{condition.price_notequal}
+      </if>
+      <if test="condition.price_in != null" >
+         and price in 
+		<foreach collection="condition.price_in" item="price" open="(" separator="," close=")" >
+			#{price}
+		</foreach>
+      </if>
+      <if test="condition.isError != null" >
+         and is_error = #{condition.isError}
+      </if>
+      <if test="condition.isError_greater != null" >
+         and is_error &gt;= #{condition.isError_greater}
+      </if>
+      <if test="condition.isError_less != null" >
+         and is_error &lt;= #{condition.isError_less}
+      </if>
+      <if test="condition.isError_notequal != null" >
+         and is_error &lt;&gt; #{condition.isError_notequal}
+      </if>
+      <if test="condition.isError_in != null" >
+         and is_error in 
+		<foreach collection="condition.isError_in" item="isError" open="(" separator="," close=")" >
+			#{isError}
+		</foreach>
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, get_time, menu_type, location, price, is_error
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.test360.business.model.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from receiving
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from receiving
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from receiving
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.test360.business.model.Criteria" >
+    delete from receiving
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.test360.business.model.Receiving" useGeneratedKeys="true" keyProperty="id" >
+    insert into receiving (user_id, get_time, menu_type, location, price, is_error)
+    values (#{userId}, #{getTime}, #{menuType}, #{location}, #{price}, #{isError})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test360.business.model.Receiving" useGeneratedKeys="true" keyProperty="id" >
+    insert into receiving
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="getTime != null" >
+        get_time,
+      </if>
+      <if test="menuType != null" >
+        menu_type,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="isError != null" >
+        is_error,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="getTime != null" >
+        #{getTime},
+      </if>
+      <if test="menuType != null" >
+        #{menuType},
+      </if>
+      <if test="location != null" >
+        #{location},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+      <if test="isError != null" >
+        #{isError},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.test360.business.model.Criteria" resultType="java.lang.Integer" >
+    select count(*) from receiving
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update receiving
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.getTime != null" >
+        get_time = #{record.getTime},
+      </if>
+      <if test="record.menuType != null" >
+        menu_type = #{record.menuType},
+      </if>
+      <if test="record.location != null" >
+        location = #{record.location},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+      <if test="record.isError != null" >
+        is_error = #{record.isError},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update receiving
+    set id = #{record.id},
+      user_id = #{record.userId},
+      get_time = #{record.getTime},
+      menu_type = #{record.menuType},
+      location = #{record.location},
+      price = #{record.price},
+      is_error = #{record.isError}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test360.business.model.Receiving" >
+    update receiving
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="getTime != null" >
+        get_time = #{getTime},
+      </if>
+      <if test="menuType != null" >
+        menu_type = #{menuType},
+      </if>
+      <if test="location != null" >
+        location = #{location},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="isError != null" >
+        is_error = #{isError},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test360.business.model.Receiving" >
+    update receiving
+    set user_id = #{userId},
+      get_time = #{getTime},
+      menu_type = #{menuType},
+      location = #{location},
+      price = #{price},
+      is_error = #{isError}
+    where id = #{id}
+  </update>
+</mapper>

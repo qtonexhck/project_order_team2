@@ -1,0 +1,4 @@
+rootProject.name = 'OrderingSystem'
+include 'Frontend'
+include 'Backend'
+include 'AuthSql'

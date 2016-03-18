@@ -1,0 +1,65 @@
+apply from: 'dependencies.gradle'
+
+allprojects {
+    group 'OrderingSystem'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven-publish'
+
+    repositories {
+        repositories { maven { url 'http://192.168.25.251:8981/nexus/content/groups/public/' } }
+        repositories { maven { url 'http://repo.thinkjoy.cn/content/groups/public/' } }
+        mavenLocal()
+//        mavenCentral()
+    }
+
+    sourceCompatibility = 1.8
+
+    //UTF-8
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.warnings = false
+    }
+
+    //上传jar
+    uploadArchives {
+        repositories {
+            apply plugin: 'maven'
+            mavenDeployer {
+                snapshotRepository(url: "http://192.168.25.251:8981/nexus/content/repositories/snapshots/") {
+                    authentication(userName: "admin", password: "admin123")
+                }
+                repository(url: "http://192.168.25.251:8981/nexus/content/repositories/thirdparty/") {
+                    authentication(userName: "admin", password: "admin123")
+                }
+            }
+        }
+    }
+}
+
+subprojects {
+    configurations {
+        provided
+        compile.extendsFrom provided
+
+        all*.exclude group: 'org.springframework', module: 'spring'
+        all*.exclude group: 'asm', module: 'asm'
+        //排除log4j桥接，只允许使用logback
+        all*.exclude group: 'log4j', module: 'log4j'
+        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+
+        all*.exclude group:'com.easypoi',module:'easypoi-web'
+        all*.exclude group:'com.easypoi',module:'easypoi-base'
+    }
+
+    dependencies {
+        compile group: "cn.thinkjoy.common", name: "thinkjoy-domain-common", version: "$thinkjoyCommonVersion", changing: true
+    }
+}
+
+configure(subprojects.findAll{it.name.contains('war')}) {
+    apply plugin:'war'
+}

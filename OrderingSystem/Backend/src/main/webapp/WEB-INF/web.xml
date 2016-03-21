@@ -70,6 +70,14 @@
     <url-pattern>*.swf</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>WeChatServlet</servlet-name>
+        <servlet-class>com.test360.weChat.servlet.WeChatServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>WeChatServlet</servlet-name>
+        <url-pattern>/wx.do</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -132,6 +132,5 @@
     <orderEntry type="library" name="Gradle: cn.thinkjoy.common:thinkjoy-domain-common:0.1.34-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="json-lib" level="project" />
-    <orderEntry type="library" name="xstream" level="project" />
   </component>
 </module>

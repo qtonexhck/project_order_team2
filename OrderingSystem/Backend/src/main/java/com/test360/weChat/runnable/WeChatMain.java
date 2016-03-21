@@ -22,11 +22,7 @@ public class WeChatMain {
 //        }
 
         String content = "马上就要9点半了,小伙伴们赶紧订餐";
-        int result = WeChatUtil.sendAllMessage(token.getToken(), content);
-        if(result == 0) {
-            System.out.println("群发消息成功");
-        } else {
-            System.out.println("群发消息失败, 错误码 : " + result);
-        }
+        String result = WeChatUtil.sendAllMessage(token.getToken(), content);
+        result = WeChatUtil.sendALLMessage_getState(token.getToken(), result);
     }
 }

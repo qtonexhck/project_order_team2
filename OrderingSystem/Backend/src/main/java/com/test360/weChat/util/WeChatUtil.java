@@ -30,8 +30,10 @@ public class WeChatUtil {
 	private final static String GET_USERDATA_CODE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
 	private final static String GET_USERDATA_AT_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 	private final static String SEND_ALL_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=ACCESS_TOKEN";
+	private final static String SEND_ALL_STATE_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/get?access_token=ACCESS_TOKEN";
 
 	private final static String SEND_ALL_TEXT_MESSAGE = "{\"filter\":{\"is_to_all\":false,\"group_id\":2},\"text\":{\"content\":\"CONTENT\"},\"msgtype\":\"text\"}";
+	private final static String SEND_ALL_STATE_MESSAGE = "{\"msg_id\": \"MSG_ID\"}";
 	/**
 	 * get请求
 	 * @param url
@@ -148,13 +150,26 @@ public class WeChatUtil {
 	 * @param content
 	 * @return
      */
-	public static int sendAllMessage(String token, String content) {
-		int result = 0;
+	public static String sendAllMessage(String token, String content) {
+		String result = null;
 		String url = SEND_ALL_URL.replace("ACCESS_TOKEN", token);
 		content = SEND_ALL_TEXT_MESSAGE.replace("CONTENT", content);
 		JSONObject jsonObject = doPostStr(url, content);
 		if(jsonObject != null) {
-			result = jsonObject.getInt("errcode");
+//			System.out.println(jsonObject.toString());
+			result = jsonObject.getString("msg_id");
+		}
+		return result;
+	}
+
+	public static String sendALLMessage_getState(String token, String msgId) {
+		String result = null;
+		String url = SEND_ALL_STATE_URL.replace("ACCESS_TOKEN", token);
+		msgId = SEND_ALL_STATE_MESSAGE.replace("MSG_ID", msgId);
+		JSONObject jsonObject = doPostStr(url, msgId);
+		if(jsonObject != null) {
+//			System.out.println(jsonObject.toString());
+			result = jsonObject.getString("msg_status");
 		}
 		return result;
 	}

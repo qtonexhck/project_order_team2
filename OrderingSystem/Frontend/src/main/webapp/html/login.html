@@ -1,0 +1,15 @@
+
+<!--head-->
+<div class="head"><span>开饭啦@全通</span></div>
+
+<!--content-->
+<div class="content">
+    <form action="" method="get">
+        <p><span>手机号码</span></p><input ng-model="phone" type="text" name="phoneNumber" class="inpPhone" placeholder="手机号码"/>
+        <p><span>验证码</span></p><input ng-model="identityingCode" type="text" name="identify" class="inpIdent" placeholder="请输入6位验证码" /><a ng-click="getIdentityingCode()" class="ideNum">获取验证码</a>
+        <div ng-click="login()" class="ideButton">立即验证</div>
+    </form>
+</div>
+
+<!--tip-->
+<div class="tip"><span>温馨提示：开饭啦服务号可点餐、查询消费、充值等信息属于私人信息，您只有通过身份验证后才能使用，请您周知。</span></div>

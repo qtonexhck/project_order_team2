@@ -18,12 +18,16 @@ import com.test360.weChat.model.message.TextMessage;
 import com.test360.weChat.util.CheckUtil;
 import com.test360.weChat.util.MessageUtil;
 
+import com.test360.weChat.util.WeChatUtil;
 import org.apache.zookeeper.server.quorum.QuorumCnxManager;
 import org.dom4j.DocumentException;
 
 public class WeChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 2579496639168759497L;
-	
+	private final static String APPID = "wx037785e9a1c37291";
+	private final static String GET_USERDATA_CODE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+
+
 	public WeChatServlet() {
 	}
 	
@@ -64,8 +68,8 @@ public class WeChatServlet extends HttpServlet {
 				//事件类型 : 关注
 				if(MessageUtil.MESSAGE_SUBSCRIBE.equals(eventType)) {
 					News news = new News("欢迎关注'开饭啦@全通'公众号", "欢迎关注'开饭啦@全通'公众号",
-							"http://soloistk.ngrok.natapp.cn/OrderingSystem/image/subscribe.png",
-							"http://soloistk.ngrok.natapp.cn/OrderingSystem/image/subscribe.png");
+							"http://soloist.ngrok.natapp.cn/OrderingSystem/image/subscribe.png",
+							GET_USERDATA_CODE_URL.replace("APPID", APPID).replace("REDIRECT_URI", "http://soloist.ngrok.natapp.cn/Frontend/#/order"));
 					List<News> newsList = new ArrayList<News>();
 					newsList.add(news);
 					NewsMessage newsMessage = new NewsMessage(fromUserName, toUserName, new Date().getTime(),

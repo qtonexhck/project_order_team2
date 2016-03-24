@@ -1,0 +1,37 @@
+<div class="head">
+	<span>充值</span>
+</div>
+
+<div class="recharge_ALl_find_this">
+
+	<div class="recharge_second">
+		<div class="recharge_second_box1">
+			<span>在线充值</span>
+		</div>
+		<hr/>
+
+		<div class="recharge_second_box2">
+			<ul>
+				<li><span class="recharge_span1">员工姓名</span><span class="recharge_span2">{{user.username}}</span></li>
+				<li><span class="recharge_span1">食堂名称</span><span class="recharge_span2">全通饭堂</span></li>
+				<li><span class="recharge_span1">员工编号</span><span class="recharge_span3">{{user.id}}</span><span >【正常】</span></li>
+				<li><span class="recharge_span1">账户余额</span><span class="recharge_span2">￥{{user.balance}}</span></li>
+			</ul>
+		</div>
+
+		<span class="recharge_span4">选择充值金额：</span>
+
+		<div class="recharge_second_box3">
+			<ul class="box-state">
+				<li ng-click="rechargeMoney(30)" id="recharge_seleted" class="30">￥30</li>
+				<li ng-click="rechargeMoney(50)" id="li50" class="50">￥50</li>
+				<li ng-click="rechargeMoney(100)" id="li100" class="100">￥100</li>
+			</ul>
+			<div class="recharge_second_box3_ul2" ng-click="recharge()"><span>立即充值</span></div>
+		</div>
+
+		<div class="recharge_second_box4">
+			<span> 进入充值体验</span>
+		</div>
+	</div>
+</div>

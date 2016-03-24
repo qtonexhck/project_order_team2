@@ -1,0 +1,29 @@
+<div class="head">
+    <span>支付</span>
+</div>
+
+<div class="content_and">
+    <div class="box_second">
+        <ul>
+            <li><span class="pay_span1">订单编号</span><span class="pay_span2">{{ordering.id}}</span></li>
+            <li><span class="pay_span1">支付项目</span><span class="pay_span2">充值支付</span></li>
+            <li><span class="pay_span1">订单时间</span><span class="pay_span2">{{ordering.orderTime}}</span></li>
+            <li><span class="pay_span1">就餐地点</span><span class="pay_span2">{{ordering.location}}</span></li>
+        </ul>
+    </div>
+
+    <div class="box_third">
+        <div class="box_third_titles">
+            <span>支付金额：</span><span class="pay_span5">￥{{ordering.price}}</span>
+        </div>
+        <hr />
+        <div class="box_third_content">
+            <div><img src="images/dlj.png"/><span>动力加支付</span><input ng-model="payWay" value="动力加支付" type="radio" name="paychoice"/></div>
+            <div><img src="images/wx.png"/><span>微信支付</span><input ng-model="payWay" value="微信支付" type="radio" name="paychoice" disabled="disabled"/></div>
+        </div>
+    </div>
+</div>
+
+<div class="content_button">
+    <span id="payclick" ng-click="paying()">立即支付</span><span ng-click="cancelPaying()">取消支付</span>
+</div>

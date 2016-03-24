@@ -1,0 +1,175 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body, ul, li, h1, h2, h3, h4, h5, h6, img, p {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica, Microsoft YaHei, Arial;
+}
+
+/*取消ul的列风格*/
+ul {
+    list-style: none;
+}
+
+/*取消a的下划线*/
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    line-height: 1.25;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+/*ionicons*/
+@font-face {
+    font-family: "ionicons";
+    src: url('../fonts/ionicons.eot'); /* IE9*/
+    src: url('../fonts/ionicons.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/ionicons.woff') format('woff'), /* chrome, firefox */ url('../fonts/ionicons.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('../fonts/ionicons.svg#ionicons') format('svg'); /* iOS 4.1- */
+}
+
+.ionicons {
+    font-family: "ionicons" !important;
+    font-size: 24px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+}
+
+.ion-drag:before {
+    content: "\f130";
+}
+
+
+.clear {
+    clear: both;
+    height: 1px;
+    line-height: 1px;
+    font-size: 1px;
+    margin-top: -1px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.orange{
+    color: #ea7515;
+}
+
+/*灰色背景*/
+.bgGray {
+    background-color: #ebebeb;
+}
+
+.dib{
+    display: inline-block;
+}
+
+/*流体设置*/
+.box-state {
+    display: -webkit-box;
+    display: -ms-box;
+    display: box;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.flex-1 {
+    display: block;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+}
+
+.flex-2 {
+    display: block;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    -webkit-box-flex: 2;
+    -ms-box-flex: 2;
+    box-flex: 2;
+}
+
+.fr{
+    float: right;
+}
+
+.fl{
+    float: left;
+}
+
+.hidden{
+    display: none;
+}
+
+/*head*/
+.head{
+    width: 100%;
+    background-color: #f0f0f0;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+
+/*content*/
+.content{
+    width: 100%;
+    padding: 0 16px;
+}
+
+/*tip*/
+.logintip{
+    width: 100%;
+    border: 16px solid #ffffff;
+    background-color: #ebebeb;
+    height: 140px;
+    margin-bottom: 30px;
+}
+
+/*oder*/
+.orderHead{
+    width: 100%;
+    text-align: center;
+    color: #ea7515;
+}
+
+.orderContent{
+    width: 100%;
+    padding: 0 16px;
+    margin: 10px 0;
+}

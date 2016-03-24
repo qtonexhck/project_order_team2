@@ -4,6 +4,26 @@
  */
 Demoapp.controller("MainCtrl", function ($rootScope, $scope, SERVER, $location, $state, Util, VERSION) {
     SERVER.url = SERVER.login;
+
+
+    $rootScope.user = {
+        id : 0,
+        username : "",
+        sex : "",
+        phone : "",
+        wechat : "",
+        balance : ""
+    }
+    $rootScope.ordering = {
+        id : 0,
+        userId : 0,
+        orderTime : "",
+        menuType : "",
+        location : "",
+        price : "",
+        isTaken : ""
+    }
+
     //go state
     $rootScope.goState = function (name) {
         if ($rootScope.settingLayer) {

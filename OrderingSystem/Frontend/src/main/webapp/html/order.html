@@ -1,0 +1,35 @@
+<div class="head"><span>点餐</span></div>
+
+<div class="address bgGray">
+    <span>♥{{user.username}}， 请选择就餐地址:</span>
+    <div class="common">
+        <ul class="ulstyle">
+            <li class="listyle" style="width:30%;"><input ng-model="location" value="17楼" type="radio" name="xzdz"/><span>17楼</span></li>
+            <li class="listyle" style="width:30%;"><input ng-model="location" value="18楼" type="radio" name="xzdz"/><span>18楼</span></li>
+            <li class="listyle" style="width:30%;"><input ng-model="location" value="创客空间" type="radio" name="xzdz"/><span>创客空间</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="orderHead titleStyle"><span>今日菜谱</span></div>
+<div class="orderHead timeStyle"><span>{{date}}</span></div>
+<!--content-->
+<div class="orderContent">
+    <form action="" method="post">
+        <div class="choice">
+            <span>选择套餐:</span>
+            <div class="common">
+                <ul>
+                    <li><span class="letterColor">A |</span><span>{{menu.A}}</span><input ng-model="menu_type" value="A" type="radio" name="xztc" class="fr"/></li>
+                    <li><span class="letterColor">B |</span><span>{{menu.B}}</span><input ng-model="menu_type" value="B" type="radio" name="xztc" class="fr"/></li>
+                    <li><span class="letterColor">C |</span><span>{{menu.C}}</span><input ng-model="menu_type" value="C" type="radio" name="xztc" class="fr"/></li>
+                </ul>
+            </div>
+        </div>
+        <div class="checkout" ng-click="checkout()">去结算</div>
+    </form>
+</div>
+<!--tip-->
+<div class="orderContent tipheigt">
+    <span class="ordertip">温馨提示:点餐时间为08:30-09:30 !</span>
+</div>

@@ -1,0 +1,13 @@
+<div class="head"><span>订单</span></div>
+
+<div class="content">
+    <div class="createorder_item1">订单已完成：{{ordering.orderTime}}</div>
+    <div class="createorder_item2"><img src="images/case.png" class="fl">
+        <div class="orange">套餐{{ordering.menuType}}（{{ordering.location}}）</div>
+        <hr/>
+        <div>{{menu}}</div>
+    </div>
+    <div class="createorder_item3"><img id="typeImage" src="images/menu_A.png" alt=""></div>
+    <div class="corderbtn" ng-click="modifyOrder()">修改订单</div>
+    <div class="codertip bgGray">温馨提示:订单完成后请您带好饭卡去领餐处领餐！饭卡仅作为领餐凭证，不收取额外费用。若给您带来不便，敬请谅解！<br/>♥ 订单修改时间为:09:00-09:30</div>
+</div>

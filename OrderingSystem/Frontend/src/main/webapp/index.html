@@ -5,45 +5,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="format-detection" content="telphone=no, email=no"/>
-    <title>前端开发实例</title>
+    <title>开饭啦@全通</title>
 
-
-    <!-- skin -->
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/signin.css"/>
-    <link rel="stylesheet" type="text/css" href="css/theme.css"/>
-
+    <!-- jquery -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="lib/bootstrap/bootstrap.min.js?v=1"></script>
     <!-- angular主库 -->
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-ui-router.min.js"></script>
-
     <!--第三方类库-->
     <script src="lib/angular/angular-sanitize.min.js"></script>
+
+    <!-- skin -->
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/unit1.css" rel="stylesheet" type="text/css">
+    <link href="lib/bootstrap/mybootstrap.css" rel="stylesheet" type="text/css">
     <!-- 配置 -->
     <script type="text/javascript" src="js/services/app.js?v=1"></script>
     <script type="text/javascript" src="js/services/config.js?v=1"></script>
     <script type="text/javascript" src="js/services/config.router.js?v=1"></script>
-
-
     <script type="text/javascript" src="js/services/common/util.sev.js?v=1"></script>
     <!-- 控制器 -->
     <script type="text/javascript" src="js/controller/main.ctrl.js"></script>
 
-    <script type="text/javascript" src="js/controller/index.ctrl.js"></script>
-    <script type="text/javascript" src="js/controller/page1.ctrl.js"></script>
-    <script type="text/javascript" src="js/controller/page2.ctrl.js"></script>
-    <script type="text/javascript" src="js/controller/page3.ctrl.js"></script>
-    <script type="text/javascript" src="js/controller/test.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/login.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/order.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/pay.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/createOrder.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/modifyOrder.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/unbind.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/unbindSuccess.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/modifyPhone.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/modifyphoneSuccess.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/queryLog.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/recharge.ctrl.js"></script>
+    <script type="text/javascript" src="js/controller/rechargeSuccess.ctrl.js"></script>
 
 </head>
 
 <body ng-app="Demoapp" ng-controller="MainCtrl">
-<header ng-include="'html/part/header.html'" ng-show="showTop"></header>
-<section ui-view class="main-content"></section>
 
-<footer ng-include="'html/part/footer.html'" ></footer>
+<section ui-view class="main-content"></section>
 
 </body>
 </html>

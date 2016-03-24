@@ -10,7 +10,7 @@ Demoapp.constant("VERSION",{
 
 Demoapp.constant("SERVER", {
     login : {
-        url:"http://127.0.0.1:8080"
+        url:"http://soloist.ngrok.natapp.cn"
     },
 
 

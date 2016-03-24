@@ -1,0 +1,29 @@
+<div class="head"><span>解除绑定</span></div>
+<div class="content">
+    <div class="unbind_item1">解除绑定</div>
+    <hr/>
+    <div class="unbind_item2">{{user.username}}，您正在进行取消微信绑定操作，取消绑定后您将不能通过微信服务号登录，确认解除绑定请点击下面“确认”按钮，放弃操作请退出。</div>
+    <hr/>
+    <div class="changeorder">
+        <span class="changed" data-toggle="modal" data-target="#myModal_1" >确定</span>
+        <!--<span ng-click="unbind_no()">取消</span></div>-->
+    <div class="bgGray unbind_item4">温馨提示：取消绑定后，您需要重新绑定才能通过微信服务号登录，请谨慎操作。</div>
+</div>
+
+<!-- 模态弹出窗内容 -->
+<div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal_1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <h3 style="text-align: center">确定取消绑定?</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="unbind_yes()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

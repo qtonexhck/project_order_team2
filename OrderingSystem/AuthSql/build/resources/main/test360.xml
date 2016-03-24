@@ -22,7 +22,7 @@
 			<property name="enableUpdateByExample" value="true" />
 		</plugin>
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.25.251:3306/plus360_team2" userId="ggp_test"
+			connectionURL="jdbc:mysql://192.168.21.251:3306/plus360_team2" userId="ggp_test"
 			password="ggp_test" />
 
 		<javaModelGenerator targetPackage="com.test360.business.model"

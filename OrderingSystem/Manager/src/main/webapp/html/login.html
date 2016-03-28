@@ -1,0 +1,36 @@
+<div class="loginClass">
+    <form name="myForm">
+        <div class="loginTheme" >
+            <img src="images/u8.png" >
+        </div>
+        <div class="contentAll">
+            <div class="contentAccount">
+                <p><span class="fzType22">账号</span></p>
+            </div>
+            <div class="inputAccount">
+                <input class="input" name="account" placeholder="账号"  type="text" ng-model="manager.account" required>
+                <span  ng-show="myForm.account.$dirty && myForm.account.$invalid">
+                    <span class="tipinput" ng-show="myForm.account.$error.required">账号不能为空</span>
+                </span>
+            </div>
+
+            <div class="contentPassword">
+                <p><span class="fzType22">密码</span></p>
+            </div>
+            <div class="inputPwd">
+                <input class="input" name="password" required placeholder="密码" type="password" ng-model="manager.password">
+                 <span  ng-show="myForm.password.$dirty && myForm.password.$invalid">
+                    <span class="tipinput" ng-show="myForm.password.$error.required">密码不能为空</span>
+                </span>
+            </div>
+
+            <div class="contentCheck">
+                <input ng-model="manager.saveme" type="checkbox">记住密码
+            </div>
+
+            <div class="button">
+                <button class="sumbit" ng-click="onLogin()" ng-disabled="myForm.account.$dirty && myForm.account.$invalid||myForm.password.$dirty && myForm.password.$invalid" type="button" >登&nbsp&nbsp&nbsp录</button>
+            </div>
+        </div>
+    </form>
+</div>

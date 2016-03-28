@@ -1,0 +1,393 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body, ul, li, h1, h2, h3, h4, h5, h6, img, p {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: white;
+}
+
+/*取消ul的列风格*/
+ul {
+    list-style: none;
+}
+
+/*取消a的下划线*/
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    line-height: 1.25;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+.ion-drag:before {
+    content: "\f130";
+}
+
+.ion-chevron-left:before {
+    content: "\f124";
+}
+
+.ion-chevron-down:before {
+    content: "\f123";
+}
+
+
+/*字体颜色*/
+.dark-light{
+    color: black;
+}
+
+.gray{
+    color: #989898;
+}
+
+.cyanine {
+    color: #0db2ab;
+}
+.cyanine-light{
+    color: #27e8e0;
+}
+.yellow-brown{
+    color: #ffb61a;
+}
+
+.white{
+    color: #333333;
+}
+
+/*字体大小*/
+.fz18{
+     font-size: 18px;
+ }
+
+.fzType22{
+    font-size: 22px;
+    color: black;
+}
+
+.fz24{
+    font-size: 24px;
+}
+/*浮动*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+     clear: both;
+     height: 1px;
+     line-height: 1px;
+     font-size: 1px;
+     margin-top: -1px;
+ }
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/*灰色背景*/
+.bgGray {
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.dib{
+    display: inline-block;
+}
+
+.hidden{
+    display: none;
+}
+
+/*head*/
+.title {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background-color: #4aaf4e;
+    border-bottom: 1px solid #33b56f;
+    padding: 0 16px;
+    position: relative;
+}
+
+.loginClass{
+    width: 800px;;
+    height:500px;;
+    left:45%;
+    top:50%;
+    position: relative;
+    margin:100px 0 0 -300px;
+    background-color: #e8e8e8;
+    border-color: #444444;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+}
+
+.contentAccount{
+    width: 80px;
+    height: 20px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.inputAccount{
+    height: 20px;
+    float:left;
+    width: 270px;
+    margin-top: 50px;
+    margin-left: -10px;
+}
+.input{
+    height:25px;
+    width: 180px;
+    border-radius: 2px;
+}
+.contentPassword{
+    width: 80px;
+    height: 30px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.inputPwd{
+    height: 30px;
+    float:left;
+    width: 270px;
+    margin-top: 50px;
+    margin-left: -10px;
+}
+
+.contentCheck{
+    width: 250px;
+    height: 10px;
+    margin-top: 10px;
+    margin-left:110px;
+    float: left;
+    font-size: 12px;
+    align-content: center;
+
+}
+
+.contentAll{
+    width: 400px;
+    height: 300px;
+    left: 200px;
+    top: 150px;
+    margin-top: -10px;
+    position: absolute;
+    background-color: lightskyblue;
+    border-color: #444444;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.tipinput{
+    color: red;
+    font-size: 12px;
+}
+
+.loginTheme{
+    margin-left: 150px;
+    margin-top:30px;
+    text-shadow:5px 1px 6px #f7f7f7;
+    color: black;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.button{
+    width: 100%;
+    float: left;
+    margin-left: 60px;
+    margin-top: 40px;
+
+}
+
+.sumbit{
+    width: 250px;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius:4px;
+    color:black;
+}
+.sumbit:active{
+    -webkit-box-shadow:inset 0 0 0 rgba(0,0,0,.125);
+    box-shadow:inset 0 0 0 rgba(0,0,0,.125)
+}
+
+.mainTop{
+    width: 100%;
+    height: 25px;
+    text-align: right;
+    background-color: darkcyan;
+}
+
+.welcome{
+    margin-right: 200px;
+}
+
+.loginOut{
+    margin-right: 100px;
+    color: black;
+}
+
+.loginOut:hover{
+    color: red;
+    cursor:pointer;
+}
+
+.menu{
+    width: 100%;
+    height: 46px;
+    float: left;
+    background-color: #66afe9;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #f9f9f9;
+    border-bottom-color: #f9f9f9;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.menuList{
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    cursor:pointer;
+}
+.tablesize{
+    width: 1000px;
+    height: 500px;
+    left: 200px;
+    top: 100px;
+    position: relative;
+    background-color: ghostwhite;
+    border-color: #444444;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+}
+.menu1{
+    width: 800px;
+    margin: -30px 0 0 100px;
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+.menu2{
+    width: 800px;
+    float: left;
+    margin: 5px 0 0 100px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.table{
+    width: 600px;
+
+}
+.tablepostion1{
+    width: 600px;
+
+    margin: 30px 0 0 100px;
+    float: left;
+    background-color: #a6e1ec;
+}
+
+.tablepostion2{
+    width: 800px;
+    margin: 10px 0 0 50px;
+    float: left;
+
+}
+
+.ul1{
+    width: 150px;
+    height: 150px;
+    margin: 10px 0 0 30px;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.ul2{
+    margin: 10px 0 0 100px;
+}
+.ul3{
+    width: 80px;
+    margin: 10px 0 0 20px;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ul4{
+    width: 80px;
+    margin: 20px 0 0 0;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+.ultime{
+    width: 130px;
+}
+
+.buttomSize{
+    height: 110px;
+    width: 60px;
+}
+.pricesize{
+    width: 40px;
+}
+
+.record{
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    cursor:pointer;
+}
+.condition{
+    width: 600px;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+.tablesize li{
+    font-size: 12px;
+    height: 30px;
+}

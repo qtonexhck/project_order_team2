@@ -1,0 +1,253 @@
+<div class="mainTop">
+    <span class="welcome">欢迎:<b>{{account}}</b></span>
+    <b class="loginOut" ng-click="loginOut()">[退出]</b>
+</div>
+<div class="menu">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="menuList" >
+            <a href="#menu1" data-toggle="tab"><span class="white">菜谱管理</span></a>
+        </li>
+        <li class="menuList" ng-click="checkAll()">
+            <a href="#menu2" data-toggle="tab"><span class="white">订单管理</span></a>
+        </li>
+        <li class="menuList" ng-click="AllNumber()">
+            <a href="#menu3" data-toggle="tab"><span class="white">统计管理</span></a>
+        </li>
+    </ul>
+</div>
+<div id="myTabContent" class="tab-content">
+
+    <!--修改菜谱-->
+    <div class="tab-pane fade in active" id="menu1" >
+        <div class="tablesize">
+            <div class="menu1">修改菜谱</div>
+            <div class="tablepostion1">
+                <form>
+                    <table class="table">
+                        <tr>
+                            <td>时间选择</td>
+                            <td><input type="date" ng-model="menu.time"></td>
+                        </tr>
+                        <tr>
+                            <td>A套餐</td>
+                            <td><input type="text" ng-model="menu.A" placeholder="例:鱼香肉丝+白切鸡+蒸蛋"></td>
+                            <td><input id="aprice" type="text" class="pricesize" ng-model="menu.Aprice" ng-blur="checkprice()">元</td>
+                            <td rowspan="3"><button class="buttomSize" type="button" ng-click="menuLoad()">确认</button> </td>
+                        </tr>
+                        <tr>
+                            <td>B套餐</td>
+                            <td><input type="text" ng-model="menu.B" placeholder="例:鱼香肉丝+白切鸡+蒸蛋"></td>
+                            <td><input id="bprice" type="text"  class="pricesize" ng-model="menu.Bprice" ng-blur="checkprice()">元</td>
+                        </tr>
+                        <tr>
+                            <td>C套餐</td>
+                            <td><input type="text" ng-model="menu.C" placeholder="例:鱼香肉丝+白切鸡+蒸蛋"></td>
+                            <td><input id="cprice" type="text" class="pricesize" ng-model="menu.Cprice" ng-blur="checkprice()">元</td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="menu2">已添加的菜单</div>
+            <div class="ul1 ul2">
+                <ul>
+                    <li>时间</li>
+                    <li ng-repeat="time in menuAll">{{time.menuDate}}</li>
+                </ul>
+            </div>
+            <div class="ul1">
+                <ul>
+                    <li>A套餐</li>
+                    <li ng-repeat="menu in menuAll">{{menu.menuA}}</li>
+                </ul>
+            </div>
+            <div class="ul1">
+                <ul>
+                    <li>B套餐</li>
+                    <li ng-repeat="menu in menuAll">{{menu.menuB}}</li>
+                </ul>
+            </div>
+            <div class="ul1">
+                <ul>
+                    <li>C套餐</li>
+                    <li ng-repeat="menu in menuAll">{{menu.menuC}}</li>
+                </ul>
+            </div>
+            <div class="ul1">
+                <ul>
+                    <li>删除</li>
+                    <li ng-repeat="menu in menuAll">
+                        <button  type="button" ng-click="remove(menu.menuDate)"><img src="images/u53.png"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--订单管理-->
+    <div class="tab-pane fade" id="menu2">
+        <div class="tablesize">
+            <div class="menu1">订单管理</div>
+            <div class="record">
+                <ul id="myTab2" class="nav nav-tabs" >
+                    <li class="tab" >
+                        <a href="#tab1" data-toggle="tab"><button>全部订单</button></a>
+                    </li>
+                    <li class="tab">
+                        <a href="#tab2" data-toggle="tab"><button>异常订单</button></a>
+                    </li>
+                    <li class="tab">
+                        <a href="#tab3" data-toggle="tab"><button>领餐记录</button></a>
+                    </li>
+                </ul>
+            </div>
+
+                <div class="condition">
+                    <form>
+                        <input type="date" placeholder="请选择时间" ng-model="querytime">
+                        <input type="text" placeholder="员工号" ng-model="userid">
+                        <button type="button" ng-click="checkAll()">搜索</button>
+                    </form>
+                </div>
+
+            <div id="myTab2Content" class="tab-content">
+                <div class="tab-pane fade" id="tab1">
+                    <div class="tablepostion2">
+                             <ul class="ul3">
+                                 <li>员工号</li>
+                                 <li ng-repeat="id in orderAll">{{id.userId}}</li>
+
+                             </ul>
+                            <ul class="ul3">
+                                <li>员工姓名</li>
+                                <li ng-repeat="name in orderAll">{{name.id}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li>员工套餐</li>
+                                <li ng-repeat="order in orderAll">{{order.menuType}}</li>
+                            </ul>
+                            <ul class="ul3 ultime">
+                                <li>时间</li>
+                                <li ng-repeat="time in orderAll">{{time.orderTime}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li>点餐地点</li>
+                                <li ng-repeat="order in orderAll">{{order.location}}</li>
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab2">
+                    <div class="tablepostion2">
+                            <ul class="ul3">
+                                <li>员工号</li>
+                                <li ng-repeat="id in rece">{{id.userId}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li>员工姓名</li>
+                                <li ng-repeat="name in rece">{{name.id}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li>领餐记录</li>
+                                <li ng-repeat="order in rece">{{order.isError}}</li>
+                            </ul>
+                            <ul class="ul3 ultime">
+                                <li>时间</li>
+                                <li ng-repeat="order in rece">{{order.getTime}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li >地点</li>
+                                <li ng-repeat="order in rece">{{order.location}}</li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab3">
+                    <div class="tablepostion2">
+                            <ul class="ul3">
+                                <li>员工号</li>
+                                <li ng-repeat="order in receiving">{{order.userId}}</li>
+
+                            </ul>
+                            <ul class="ul3">
+                                <li>员工姓名</li>
+                                <li ng-repeat="order in receiving">{{order.id}}</li>
+                            </ul>
+                            <ul class="ul3 ultime">
+                                <li>时间</li>
+                                <li ng-repeat="order in receiving">{{order.getTime}}</li>
+                            </ul>
+                            <ul class="ul3">
+                                <li>地点</li>
+                                <li ng-repeat="order in receiving">{{order.location}}</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--统计管理-->
+    <div class="tab-pane fade" id="menu3">
+        <div class="tablesize">
+            <div class="menu1">统计管理</div>
+            <div class="tablepostion1">
+                    <form>
+                        <tr>
+                            <td>时间选择</td>
+                            <td colspan="2">
+                                <input id="nowdate" type="date" >
+                                <button type="button" ng-click="AllNumber()">确认</button>
+                            </td>
+
+                        </tr>
+                    </form>
+
+                    <ul class="ul4">
+                        <li>17楼</li>
+                        <li>A套餐</li>
+                        <li>B套餐</li>
+                        <li>C套餐</li>
+                    </ul>
+                    <ul class="ul4">
+                        <li>统计</li>
+                        <li>{{result.a17}}</li>
+                        <li>{{result.b17}}</li>
+                        <li>{{result.c17}}</li>
+                    </ul>
+
+                    <ul class="ul4">
+                        <li>18楼</li>
+                        <li>A套餐</li>
+                        <li>B套餐</li>
+                        <li>C套餐</li>
+                    </ul>
+                    <ul class="ul4">
+                        <li>统计</li>
+                        <li>{{result.a18}}</li>
+                        <li>{{result.b18}}</li>
+                        <li>{{result.c18}}</li>
+                    </ul>
+
+                    <ul class="ul4">
+                        <li>创客空间</li>
+                        <li>A套餐</li>
+                        <li>B套餐</li>
+                        <li>C套餐</li>
+                    </ul>
+                    <ul class="ul4">
+                        <li>统计</li>
+                        <li>{{result.a}}</li>
+                        <li>{{result.b}}</li>
+                        <li>{{result.c}}</li>
+                    </ul>
+
+                    <ul class="ul4">
+                        <li>菜式总计</li>
+                        <li>{{result.a17 + result.a18 +result.a}}</li>
+                        <li>{{result.b17 + result.b18 +result.b}}</li>
+                        <li>{{result.c17 + result.c18 +result.c}}</li>
+
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>

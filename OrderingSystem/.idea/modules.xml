@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/AuthSql/AuthSql.iml" filepath="$PROJECT_DIR$/AuthSql/AuthSql.iml" />
       <module fileurl="file://$PROJECT_DIR$/Backend/Backend.iml" filepath="$PROJECT_DIR$/Backend/Backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/Frontend/Frontend.iml" filepath="$PROJECT_DIR$/Frontend/Frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Manager/Manager.iml" filepath="$PROJECT_DIR$/Manager/Manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/OrderingSystem.iml" filepath="$PROJECT_DIR$/OrderingSystem.iml" />
     </modules>
   </component>
